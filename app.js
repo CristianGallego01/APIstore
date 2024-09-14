@@ -44,6 +44,9 @@ const makeProducts = (product) =>{
     btnCard.textContent = "Agregar al carrito"
     btnCard.className = "btnProduct"
 
+    btnCard.addEventListener("click",(event) => {
+        console.log("ID producto "+product.id , "Precio producto "+product.price)
+    })
 
 
     card.appendChild(imgCard)
