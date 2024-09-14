@@ -1,0 +1,51 @@
+main{
+    display: flex;
+    flex-direction: column;
+    /*border: solid black 3px;*/
+    justify-content: center;
+    text-align: center;
+    margin: 3rem;
+    background-color:#6c6b6b;
+    border-radius: 2rem;
+
+}
+.car{
+    display: flex;
+    flex-direction: row;
+    gap: 5rem;
+    text-align: center;
+    margin: 3rem;
+    justify-content: center;
+    align-items: center;
+}
+
+img{
+    width: 10rem;
+    height: 10rem;
+    border-radius: .5rem;
+}
+body{
+    background-color: #808080;
+    justify-content: center;
+    text-align: center;
+
+}
+
+h2 {
+    font-size: 3rem;
+}
+p{
+    font-size: 2rem;
+}
+button{
+    width: 2rem;
+    height: 2rem;
+    border-radius: .5rem;
+    border: none;
+}
+input{
+    width: 3rem;
+    border-radius: .5rem;
+    border: none;
+    height: 1.5rem;
+}

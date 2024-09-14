@@ -25,6 +25,7 @@ header{
     justify-content: center;  
     padding: 1rem;
     color: white;
+    margin-left:35rem;
 }
 hr{
     height: 3px;
@@ -33,9 +34,10 @@ hr{
 }
 .filter{
     margin-top: 2rem;
-    width: 100%;
+    width: 98%;
     height: 2%;
     background-color: rgb(87, 87, 87);
+    border-radius: 1rem;
 }
 .all-products{
     height:90%;
@@ -79,4 +81,8 @@ hr{
 }
 .imgProduct{
     background-color: white;
+}
+
+.cart{
+    padding-left: 40rem;
 }
