@@ -48,6 +48,17 @@ const makeProducts = (product) =>{
         console.log("ID producto "+product.id , "Precio producto "+product.price)
     })
 
+    btnCard.addEventListener("click",function(){
+
+        let datosCompra = JSON.parse(localStorage.getItem("datoscompra")) || [];
+
+        const nuevoDato = {
+            precio: priceCard.textContent,
+            id: idCard.textContent,
+        }
+        datosCompra.push(nuevoDato);
+        localStorage.setItem("datoscompra", JSON.stringify(datosCompra));
+    })
 
     card.appendChild(imgCard)
     card.appendChild(cardContent)
@@ -60,3 +71,12 @@ const makeProducts = (product) =>{
     cardContent.appendChild(btnCard)
 
 }
+
+// btnCard.addEventListener("click",function(){
+//     const datos = {
+//         precio: priceCard.textContent,
+//         id: idCard.textContent,
+//     };
+//     localStorage.setItem("datoscompra",JSON.stringify(datos))
+// })
+

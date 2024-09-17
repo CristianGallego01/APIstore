@@ -65,6 +65,11 @@ hr{
     display: flex;
     flex-direction: row;
     gap: 1rem;
+    transition: transform 0.3s ease-in-out;
+}
+.productCard:hover{
+        transform: scale(1.05); 
+    
 }
 .contentCard{   
     display: flex;
@@ -79,6 +84,7 @@ hr{
     height: 1.5rem;
     background-color: rgb(13, 192, 13);
 }
+
 .imgProduct{
     background-color: white;
 }
