@@ -23,7 +23,7 @@ function mostrarDatos() {
     // Crear una cadena HTML para mostrar los datos en forma de div
     let html = "";
     datosCompra.forEach(dato => {
-        html += `<div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+        html += `<div style="display: flex; flex-direction: row; margin-bottom: 5px;">
                     <span>ID: ${dato.id}</span>
                     <span>Precio: ${dato.precio}</span>
                 </div>`;
