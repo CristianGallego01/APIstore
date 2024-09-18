@@ -1,8 +1,8 @@
 const products = document.getElementById("all-products")
 
 const urlProducts ="https://fakestoreapi.com/products"
-
-
+let cant=1
+let datosCompra =[]
 
 
 const getProduct =async (URL) =>{
@@ -50,14 +50,25 @@ const makeProducts = (product) =>{
 
     btnCard.addEventListener("click",function(){
 
-        let datosCompra = JSON.parse(localStorage.getItem("datoscompra")) || [];
+        datosCompra = JSON.parse(localStorage.getItem("datosCompra")) || [];
 
-        const nuevoDato = {
-            precio: priceCard.textContent,
-            id: idCard.textContent,
+        let nuevoDato = {
+            precio: product.price,
+            id: product.id,
+            cant: cant,
+            image: product.image
         }
-        datosCompra.push(nuevoDato);
-        localStorage.setItem("datoscompra", JSON.stringify(datosCompra));
+        
+        
+        let existingProduct = datosCompra.find(item => item.id === nuevoDato.id);
+        if (existingProduct) {
+            // Si el producto ya existe, suma el precio
+            existingProduct.cant += nuevoDato.cant;
+        } else {
+            // Si no existe, lo agregas al carrito
+            datosCompra.push(nuevoDato);6
+        }
+        localStorage.setItem("datosCompra", JSON.stringify(datosCompra));
     })
 
     card.appendChild(imgCard)
@@ -72,11 +83,4 @@ const makeProducts = (product) =>{
 
 }
 
-// btnCard.addEventListener("click",function(){
-//     const datos = {
-//         precio: priceCard.textContent,
-//         id: idCard.textContent,
-//     };
-//     localStorage.setItem("datoscompra",JSON.stringify(datos))
-// })
 

@@ -1,37 +1,60 @@
-// function mostrarDatos() {
-//     // Recuperar los datos del localStorage
-//     const datosCompra = JSON.parse(localStorage.getItem("datoscompra")) || [];
 
-//     // Crear una cadena HTML para mostrar los datos
-//     let html = "<ul>";
-//     datosCompra.forEach(dato => {
-//         html += `<li>ID: ${dato.id}, Precio: ${dato.precio}</li>`;
-//     });
-//     html += "</ul>";
+const numberInput = document.getElementById('numberInput');
+const carts = document.getElementById('carts');
+let cantidad = 0;
 
-//     // Insertar el HTML en el contenedor de la página
-//     document.getElementById("datosContenedor").innerHTML = html;
-// }
 
-// // Llamar a la función para mostrar datos cuando se cargue la página
-// document.addEventListener('DOMContentLoaded', mostrarDatos);    
 
-function mostrarDatos() {
-    // Recuperar los datos del localStorage
-    const datosCompra = JSON.parse(localStorage.getItem("datoscompra")) || [];
+const clearCart = document.getElementById('clearCart').addEventListener('click', ()=>{
+    console.log('carrito borrado');
+    
+    localStorage.clear();
+    
+})
 
-    // Crear una cadena HTML para mostrar los datos en forma de div
-    let html = "";
-    datosCompra.forEach(dato => {
-        html += `<div style="display: flex; flex-direction: row; margin-bottom: 5px;">
-                    <span>ID: ${dato.id}</span>
-                    <span>Precio: ${dato.precio}</span>
-                </div>`;
+const cartStore = ()=>{
+    let cart = JSON.parse(localStorage.getItem('datosCompra')) || [];
+// Aquí puedes iterar sobre los productos del carrito y mostrarlos
+cart.forEach(product => {
+    
+    const cardCart = document.createElement('div')
+    cardCart.classList.add('cart')
+
+    const imgProduct = document.createElement('img')
+    imgProduct.src=product.image
+    imgProduct.alt=product.title
+
+
+    const inputCant = document.createElement('input')
+    inputCant.type='text'
+    inputCant.id=product.id
+    inputCant.value=product.cant
+
+    const priceCard = document.createElement('p')
+    priceCard.textContent = 'subtotal: $'+product.precio*inputCant.value
+
+
+    const clearProduct = document.createElement('button')
+    clearProduct.textContent='X'
+    clearProduct.id='clear'
+    // Evento para borrar el producto
+    clearProduct.addEventListener('click', () => {
+        let cart = JSON.parse(localStorage.getItem('datosCompra')) || [];
+        cart = cart.filter(item => item.id !== product.id);
+        localStorage.setItem('datosCompra', JSON.stringify(cart));
+        location.reload();
     });
 
-    // Insertar el HTML en el contenedor de la página
-    document.getElementById("datosContenedor").innerHTML = html;
-}
+    cardCart.appendChild(imgProduct)
+    cardCart.appendChild(priceCard)
 
-// Llamar a la función para mostrar datos cuando se cargue la página
-document.addEventListener('DOMContentLoaded', mostrarDatos);
+    cardCart.appendChild(inputCant)
+
+    cardCart.appendChild(clearProduct)
+
+    carts.appendChild(cardCart)
+    console.log("ID producto "+product.id , "Precio producto "+product.price)
+});
+}
+cartStore();
+
