@@ -62,10 +62,10 @@ const makeProducts = (product) =>{
         
         let existingProduct = datosCompra.find(item => item.id === nuevoDato.id);
         if (existingProduct) {
-            // Si el producto ya existe, suma el precio
+        
             existingProduct.cant += nuevoDato.cant;
         } else {
-            // Si no existe, lo agregas al carrito
+
             datosCompra.push(nuevoDato);
         }
         localStorage.setItem("datosCompra", JSON.stringify(datosCompra));

@@ -16,7 +16,7 @@ const clearCart = document.getElementById('clearCart').addEventListener('click',
 const cartStore = ()=>{
     let cart = JSON.parse(localStorage.getItem('datosCompra')) || [];
     let total = 0
-// Aquí puedes iterar sobre los productos del carrito y mostrarlos
+
 cart.forEach(product => {
     
     const cardCart = document.createElement('div')
