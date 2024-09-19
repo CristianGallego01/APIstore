@@ -83,6 +83,10 @@ hr{
     width: 90%;
     height: 1.5rem;
     background-color: rgb(13, 192, 13);
+
+}
+.btnProduct:hover{
+    box-shadow: 5px 5px 15px rgba(6, 6, 6, 0.726);
 }
 
 .imgProduct{
