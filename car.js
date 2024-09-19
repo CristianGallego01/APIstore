@@ -33,7 +33,7 @@ cart.forEach(product => {
     inputCant.value=product.cant
 
     const priceCard = document.createElement('p')
-    const subtotal = product.precio * inputCant.value
+    let subtotal = product.precio * inputCant.value
     priceCard.textContent = 'subtotal: $'+ subtotal
 
     total += subtotal;
