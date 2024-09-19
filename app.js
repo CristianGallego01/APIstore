@@ -66,7 +66,7 @@ const makeProducts = (product) =>{
             existingProduct.cant += nuevoDato.cant;
         } else {
             // Si no existe, lo agregas al carrito
-            datosCompra.push(nuevoDato);6
+            datosCompra.push(nuevoDato);
         }
         localStorage.setItem("datosCompra", JSON.stringify(datosCompra));
     })

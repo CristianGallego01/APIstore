@@ -1,6 +1,7 @@
 
 const numberInput = document.getElementById('numberInput');
 const carts = document.getElementById('carts');
+const divTotal = document.getElementById("total")
 let cantidad = 0;
 
 
@@ -14,6 +15,7 @@ const clearCart = document.getElementById('clearCart').addEventListener('click',
 
 const cartStore = ()=>{
     let cart = JSON.parse(localStorage.getItem('datosCompra')) || [];
+    let total = 0
 // Aquí puedes iterar sobre los productos del carrito y mostrarlos
 cart.forEach(product => {
     
@@ -31,13 +33,16 @@ cart.forEach(product => {
     inputCant.value=product.cant
 
     const priceCard = document.createElement('p')
-    priceCard.textContent = 'subtotal: $'+product.precio*inputCant.value
+    const subtotal = product.precio * inputCant.value
+    priceCard.textContent = 'subtotal: $'+ subtotal
 
+    total += subtotal;
 
     const clearProduct = document.createElement('button')
     clearProduct.textContent='X'
     clearProduct.id='clear'
-    // Evento para borrar el producto
+    
+
     clearProduct.addEventListener('click', () => {
         let cart = JSON.parse(localStorage.getItem('datosCompra')) || [];
         cart = cart.filter(item => item.id !== product.id);
@@ -55,6 +60,7 @@ cart.forEach(product => {
     carts.appendChild(cardCart)
     console.log("ID producto "+product.id , "Precio producto "+product.price)
 });
+    divTotal.textContent = "total a pagar "+ total
 }
 cartStore();
 
